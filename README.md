@@ -20,7 +20,6 @@ El publico objetivo de la pagina va a ser toda aquella persona que quiera compra
    <li>https://www.ktronix.com/</li>
 </ul>
 <p>Tipografia del sitio: Noto Sans</p>
-<p>https://fonts.google.com/noto/specimen/Noto+Sans</p> 
+<p>https://fonts.google.com/noto/specimen/Noto+Sans</p>
 
-Trello:
-https://trello.com/w/espaciodetrabajodeuser63829972
+(Este es una copia del repositorio original que guardo en mi perfil de GitHub)
