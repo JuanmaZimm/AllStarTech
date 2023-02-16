@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<%- include("../partials/head") %>
+    <script src="/js/register.js" defer></script>
+
+    <body>
+
+        <!-- Header -->
+        <%- include("../partials/header") %>
+
+            <main>
+                <form action="/user/register" method="post" class="container login-form" enctype="multipart/form-data" id="register-form">
+                    <h4 id="register-title">FORMULARIO DE REGISTRO</h4>
+
+                    <label>Nombre:</label>
+                    <input class="CampoTexto" type="text" name="nombre" id="register-name" placeholder="Insertar Nombre"
+                        value="<%= locals.oldData ? oldData.nombre : null  %>">
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="errorLoginBack"><label>
+                                <%= errors.nombre.msg %>
+                            </label></div>
+                        <% } %>
+                            <div class="errorLogin" id="register-error-name"></div>
+
+
+                            <label>Apellidos:</label>
+                            <input class="CampoTexto" type="text" name="apellido" id="register-last-name"
+                                placeholder="Insertar Apellido" value="<%= locals.oldData ? oldData.apellido: null  %>">
+                            <% if (locals.errors && errors.apellido) { %>
+                                <div class="errorLoginBack"><label>
+                                        <%= errors.apellido.msg %>
+                                    </label></div>
+                                <% } %>
+                                    <div class="errorLogin" id="register-error-last-name"></div>
+
+                                    <label>Imagen de perfil:</label>
+                                    <input class="CampoTexto" type="file" name="imagenPerfil" id="register-file">
+                                    <% if (locals.errors && errors.imagenPerfil) { %>
+                                        <div class="errorLoginBack"><label>
+                                                <%= errors.imagenPerfil.msg %>
+                                            </label></div>
+                                        <% } %>
+                                            <div class="errorLogin" id="register-error-file"></div>
+
+                                            <label>Correo:</label>
+                                            <input class="CampoTexto" type="email" name="email" id="register-mail"
+                                                placeholder="Insertar Correo"
+                                                value="<%= locals.oldData ? oldData.email : null  %>">
+                                            <% if (locals.errors && errors.email) { %>
+                                                <div class="errorLoginBack"><label>
+                                                        <%= errors.email.msg %>
+                                                    </label></div>
+                                                <% } %>
+                                                    <div class="errorLogin" id="register-error-mail"></div>
+
+                                                    <label>Contraseña:</label>
+                                                    <input class="CampoTexto" type="password" name="contrasena"
+                                                        id="register-password" placeholder="Insertar Contraseña"
+                                                        minlength="8">
+                                                    <% if (locals.errors && errors.contrasena) { %>
+                                                        <div class="errorLoginBack"><label>
+                                                                <%= errors.contrasena.msg %>
+                                                            </label></div>
+                                                        <% } %>
+                                                            <div class="errorLogin" id="register-error-password"></div>
+
+                                                            <label>Confirma contraseña:</label>
+                                                            <input class="CampoTexto" type="password" name="contrasena2"
+                                                                id="register-check-password"
+                                                                placeholder="Repetir Contraseña" minlength="8">
+                                                            <% if (locals.errors && errors.contrasena2) { %>
+                                                                <div class="errorLoginBack"><label>
+                                                                        <%= errors.contrasena2.msg %>
+                                                                    </label></div>
+                                                                <% } %>
+                                                                    <div class="errorLogin"
+                                                                        id="register-error-check-password"></div>
+
+                                                                    <p id="register-p1">
+                                                                        <input type="checkbox" name="terminos"
+                                                                            value="acepto" required>
+                                                                        <a href="#">Aceptas terminos y condiciones</a>
+                                                                    </p>
+
+                                                                    <input id="register-button" class="Boton" type="submit"
+                                                                        value="BIENVENIDO">
+
+                                                                    <p id="register-p2">
+                                                                        <a href="./login">¿Ya tienes cuenta?</a>
+                                                                    </p>
+                </form>
+            </main>
+
+            <!-- Footer -->
+            <%- include("../partials/footer") %>
+
+    </body>
+
+</html>

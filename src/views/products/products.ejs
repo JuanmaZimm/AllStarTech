@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<%- include("../partials/head") %>
+
+    <body>
+
+        <!-- Header -->
+        <%- include("../partials/header") %>
+
+            <main class="product-content">
+
+                <h4 class="product-title">Nuestros Productos</h4>
+                <div class="productList">
+                    <% products.forEach(product=> { %>
+                        <div class="product container">
+                            <img class="img" src="/images/products/<%= product.img1 %>" />
+                            <div class="text">
+                                <p class="name">
+                                    <%= product.name %>
+                                </p>
+                                <p class="price">$<%= product.price %>
+                                </p>
+                                <p class="discount">%<%= product.discount %> OFF</p>
+                            </div>
+                            <div class="options">
+                                <a class="ver-más" href="/products/<%= product.id %>">Ver más</a>
+                                <button type="submit" id="carrito">Agregar
+                                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        <% }) %>
+
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <%- include("../partials/footer") %>
+
+    </body>
+
+</html>

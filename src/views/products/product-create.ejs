@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head -->
+<%- include("../partials/head") %>
+    <script defer src="/js/createProduct.js"></script>
+
+    <body>
+        <!-- Header -->
+        <%- include("../partials/header") %>
+            <main>
+                <div class="container create-container">
+                    <div class="title">Creacion del producto</div>
+                    <div class="content">
+                        <form id="product-create-form" action="/products/" method="POST" enctype="multipart/form-data">
+                            <div class="product-details">
+                                <div class="input-box">
+                                    <span class="details">Nombre del Producto</span>
+                                    <input type="text" placeholder="Nombre del producto" id="product-create-name"
+                                        name="name" value="<%= locals.oldData ? oldData.name : null %>">
+                                    <% if (locals.errors && errors.name) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.name.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="errorLogin" id="product-create-error-name"></div>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Precio del producto</span>
+                                    <input type="text" id="product-create-price" placeholder="Precio del producto"
+                                        name="price" value="<%= locals.oldData ? oldData.price : null %>">
+                                    <% if (locals.errors && errors.price) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.price.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="errorLogin" id="product-create-error-price"></div>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Aplicar
+                                        descuento</span>
+                                    <input type="text" id="product-create-discount" placeholder="Aplicar Descuento"
+                                        name="discount" value="<%= locals.oldData ? oldData.discount : null %>">
+                                    <% if (locals.errors && errors.discount) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.discount.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="errorLogin" id="product-create-error-discount"></div>
+                                </div>
+                                <div class="input-box select-category">
+                                    <label for="category">Categoria Del Producto</label>
+                                    <select name="category" id="category" class="control-form" required>
+                                        <% for(let i=0; i<categories.length; i++) { %>
+                                            <option value="<%= categories[i].id %>">
+                                                <%= categories[i].name %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                    <% if (locals.errors && errors.category) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.category.msg %>
+                                        </div>
+                                        <% } %>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Imagen
+                                        principal</span>
+                                    <input type="file" id="product-create-file" placeholder="Imagen Principal"
+                                        name="image1">
+                                    <% if (locals.errors && errors.image1) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.image1.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="errorLogin" id="product-create-error-file"></div>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Imagen
+                                        Secundaria</span>
+                                    <input type="file" id="product-create-file2" placeholder="Imagen Secundaria"
+                                        name="image2">
+                                    <% if (locals.errors && errors.image2) { %>
+                                        <div class="errorLoginBack">
+                                            <%= errors.image2.msg %>
+                                        </div>
+                                        <% } %>
+                                            <div class="errorLogin" id="product-create-error-file2"></div>
+                                </div>
+                            </div>
+                            <div class="input-box text-description">
+                                <label for="description">Descripcion del
+                                    producto:</label>
+                                <textarea class="searchInput" id="product-create-description" type="textarea"
+                                    name="description" placeholder="insertar descripcion del producto"> </textarea>
+                                <% if (locals.errors && errors.description) { %>
+                                    <div class="errorLoginBack">
+                                        <%= errors.description.msg %>
+                                    </div>
+                                    <% } %>
+                                        <div class="errorLogin" id="product-create-error-description"></div>
+                            </div>
+                            <div class="button-crud-holder">
+                                <button class="Boton" type="submit">Crear
+                                    Producto</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer -->
+            <%- include("../partials/footer") %>
+    </body>
+
+</html>
